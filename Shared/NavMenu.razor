@@ -1,0 +1,37 @@
+﻿<div>
+    <a href="">WebApplication1</a>
+    <button @onclick="ToggleNavMenu">
+        <span></span>
+    </button>
+</div>
+
+<div @onclick="ToggleNavMenu">
+    <ul>
+        <li>
+            <NavLink href="" Match="NavLinkMatch.All">
+                <span aria-hidden="true"></span> Home
+            </NavLink>
+        </li>
+        <li>
+            <NavLink href="counter">
+                <span aria-hidden="true"></span> Counter
+            </NavLink>
+        </li>
+        <li>
+            <NavLink href="fetchdata">
+                <span aria-hidden="true"></span> Fetch data
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
